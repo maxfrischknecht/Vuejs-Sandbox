@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="origin-when-cross-origin" />
+
+  <title> A new website by Début Début </title>
+  <meta name="description" content="A Début Début website is beeing developed, Basel, Switzerland">
+  <meta name="author" content="Début Début GmbH">
+
+	<!-- Console Credits -->
+	<!-- <script src="assets/js/credits.js"></script> -->
+
+	<!-- Normalize & Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap/bootstrap-grid.min.css">
+
+	<!-- Master Css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/master.css">
+
+	<!-- VUE JS DEV -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+	<div class="container-fluid" id="content">
+		<div class="row">
+			<div class="col-12">
+				
+				<div id="app">
+					<p>{{ title }}</p>
+					<p>{{ sayHelloFunction() }}</p>
+					<p>{{ getDataFunction() }}</p>
+					<p><a v-bind:href="someLink">A Link using the v-bind syntax!</a></p>
+
+					<hr>
+					<p>{{ historyData }} (get's overwritten in a function)</p>
+					<p v-once> {{ historyData }} (uses v-once to never re-render, which apparently isn't working...)</p>
+
+					<hr>
+					<p v-html="htmlData"></p>
+
+					<hr>
+					<button v-on:click="increaseFunction">Counter Button</button>
+					<p>{{counter}}</p>
+
+					<hr>
+					<p v-on:mousemove="getCoordinates">My mouse coordinates on hover: {{x}} / {{y}}</p>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/app.js"></script>
+
+</body>
+</html>
