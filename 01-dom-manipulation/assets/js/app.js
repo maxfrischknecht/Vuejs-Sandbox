@@ -26,6 +26,9 @@ new Vue({
 			// event gets passed automatically!
 			this.x = event.clientX;
 			this.y = event.clientY;
+		},
+		alertMe: function(){
+			alert("Alert!!!");
 		}
 	}
 })

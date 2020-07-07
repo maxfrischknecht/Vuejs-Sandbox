@@ -48,7 +48,13 @@
 					<p>{{counter}}</p>
 
 					<hr>
-					<p v-on:mousemove="getCoordinates">My mouse coordinates on hover: {{x}} / {{y}}</p>
+					<p v-on:mousemove="getCoordinates">My mouse coordinates on hover: {{x}} / {{y}}
+						<span v-on:mousemove.stop=""> D E A D S P O T  M O D I F I E D</span>
+					</p>
+
+					<hr>
+					<p>Create an alert when hitting enter:</p>
+					<input type="text" v-on:keyup.enter="alertMe">
 				</div>
 
 

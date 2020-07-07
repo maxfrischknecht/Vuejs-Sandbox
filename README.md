@@ -27,3 +27,11 @@ By default Vue doesn't render html tags, this means `<p> Hello </p>` inside the 
 Use the `v-on:argument="functionToCall"` directive to listen to events like `click`, `leave` or `enter`.
 
 Vue also creates AND PASSES an event object. You can use it to access diverse information, for example x and y coordinates.
+
+If you want to pass custom arguments add them inside the `()` like so `v-on:click="increaseFunction(2)"`. If you still want to pass the default event just use both like so `v-on:click="increaseFunction(2, $event)"`.
+
+##### Event Modifiers
+If you have a nested element that should not be influenced by the function you can use event modifiers for example to stop the function like so: `<span v-on:mousemove.stop="">D E A D S P O T</span>`
+
+##### Keys & Key Modifiers
+Listen to key input events and use the modifiers to only listen to specific keys like so `v-on:keyup.enter="functionToCall"`. Checkt the Vue reference on it [here](https://vuejs.org/v2/guide/events.html#Key-Modifiers)
