@@ -16,28 +16,9 @@
 
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-$sans: 'Vollkorn';
 $serif: 'Vollkorn';
 
-$sans-mobile-m: (
-  font: ($sans, serif),
-  weight: (400),
-  transform: (none),
-  size: (2.4rem),
-  spacing: (0px),
-  line-height: (1.1)
-);
-
-$sans-desktop-m: (
-  font: ($sans, serif),
-  weight: (400),
-  transform: (none),
-  size: (2.4rem),
-  spacing: (0px),
-  line-height: (1.1)
-);
-
-$serif-mobile-m: (
+$serif-m: (
   font: ($serif, serif),
   weight: (400),
   transform: (none),
@@ -46,7 +27,7 @@ $serif-mobile-m: (
   line-height: (1.15)
 );
 
-$serif-desktop-m: (
+$serif-l: (
   font: ($serif, serif),
   weight: (400),
   transform: (none),
@@ -59,12 +40,12 @@ $serif-desktop-m: (
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 // base classe for everything
 body, h1, h2, h3, h4, h5, h6, p, li {
-	font-family: map-get($sans-mobile-m, font);
-  font-weight: map-get($sans-mobile-m, weight);
-  text-transform: map-get($sans-mobile-m, transform);
-  font-size: map-get($sans-mobile-m, size);
-  letter-spacing: map-get($sans-mobile-m, spacing);
-	line-height: map-get($sans-mobile-m, line-height);
+	font-family: map-get($serif-m, font);
+  font-weight: map-get($serif-m, weight);
+  text-transform: map-get($serif-m, transform);
+  font-size: map-get($serif-m, size);
+  letter-spacing: map-get($serif-m, spacing);
+	line-height: map-get($serif-m, line-height);
   color: $color-black;
   padding: 0px; 
   margin: 0px;
@@ -73,6 +54,19 @@ body, h1, h2, h3, h4, h5, h6, p, li {
   -moz-osx-font-smoothing: grayscale;
   word-break: break-word;
 }
+
+h1 {
+  font-family: map-get($serif-l, font);
+  font-weight: map-get($serif-l, weight);
+  text-transform: map-get($serif-l, transform);
+  font-size: map-get($serif-l, size);
+  letter-spacing: map-get($serif-l, spacing);
+  line-height: map-get($serif-l, line-height);
+  padding-bottom: 0.8rem;
+  color: red;
+  // text-align: center;
+}
+
 // create a class for each font different from the base class
 // e.g. dia-small, dia-medium, dia-large, times-small, times-medium, times-large
 // or sans-small, ..., serif-small, ...

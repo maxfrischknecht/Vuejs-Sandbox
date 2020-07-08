@@ -31,7 +31,27 @@
 			<div class="col-12">
 				
 				<div id="app">
-					<p>{{ title }}</p>
+					<h1>Conditionals</h1>
+
+					<p v-if="show">You see me</p>
+					<p v-else>Now you see me</p>
+					<button @click="show = !show">Switch</button>
+
+					<hr>
+					<h1>Grouped With The Template Tag</h1>
+
+					<template v-if="showTemplate">
+						<p>One Paragraph</p>
+						<p>Another Paragraph which is not nested!</p>
+					</template>
+					<button @click="showTemplate = !showTemplate">Switch</button>
+
+					<hr>
+					<h1>Output an array</h1>
+
+					<ul>
+						<li v-for="item in ingredients"> {{ item }} </li>
+					</ul>
 				</div>
 
 

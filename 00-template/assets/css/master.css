@@ -16,7 +16,7 @@ body, h1, h2, h3, h4, h5, h6, p, li {
   text-transform: none;
   font-size: 2.4rem;
   letter-spacing: 0px;
-  line-height: 1.1;
+  line-height: 1.15;
   color: black;
   padding: 0px;
   margin: 0px;
@@ -24,6 +24,17 @@ body, h1, h2, h3, h4, h5, h6, p, li {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   word-break: break-word;
+}
+
+h1 {
+  font-family: "Vollkorn", serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 2.4rem;
+  letter-spacing: 0px;
+  line-height: 1.15;
+  padding-bottom: 0.8rem;
+  color: red;
 }
 
 /* Desktop Sizing
@@ -85,14 +96,14 @@ img {
 /* Links & Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: black;
+  color: blue;
   text-decoration: none;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 a:visited {
-  color: black;
+  color: blue;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   text-decoration: none;
@@ -147,5 +158,25 @@ ol {
   padding: 0px;
   margin: 0px;
   margin-left: 2.2rem;
+}
+
+.demo {
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  display: inline-block;
+  margin: 0px 15px 15px 0px;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
 }
 /*# sourceMappingURL=master.css.map */

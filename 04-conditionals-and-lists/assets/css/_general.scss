@@ -30,12 +30,12 @@ img {
 /* Links & Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: $color-black;
+  color: blue;
   text-decoration: none;
   transition: 0.3s;
 
   &:visited {
-    color: $color-black;
+    color: blue;
     transition: 0.3s;
     text-decoration: none;
   }
@@ -73,10 +73,10 @@ button {
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul, li {
-  margin: 0px;
-  padding: 0px;
-  list-style: none; // or circle
-  line-height: 0;
+  // margin: 0px;
+  // padding: 0px;
+  // list-style: circle; // or circle
+  line-height: 1;
 }
 
 ol {
