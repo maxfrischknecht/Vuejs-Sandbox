@@ -1,6 +1,8 @@
 # 05 The Vue Instance
 Everything inside `new Vue = ...` is a Vue instance. You can have multiple ones and you can communicate with it also outside from the dedicated `<div id="app"></div>`.
 
+Official Docs - The Vue Instance: http://vuejs.org/guide/instance.html
+
 ## Multiple Instances
 
 It's perfectly valid to have multiple Vue instances on the same page. You can also access one instance from another instance (or from vanilla js) trough saving the instance in a variable like so:

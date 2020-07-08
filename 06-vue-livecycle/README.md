@@ -1,3 +1,44 @@
-# 06 Vue CLI
+# 06 Vue Livecycle
 
-The main difference between "normal" Vue and the Vue CLI is, that the normal version has a build in compiler and Vue compiles the files right away inside the browser. With the CLI this compiler is missing and we need to pre-compile the files before we ship them. This way we have super fast and lightweight files to ship after compiling.
+![](vuelivecycle.png)
+
+```
+
+new Vue({
+  el: "#app",
+  data: {
+    title: "Hello World!",
+  },
+  beforeCreate: function () {
+    console.log("before create");
+  },
+  created: function () {
+    console.log("created");
+  },
+  beforeMount: function () {
+    console.log("before mount");
+  },
+  mounted: function () {
+		console.log("mounted");
+	},
+	beforeUpdate: function () {
+		console.log("before update");
+	},
+	updated: function () {
+		console.log("updated");
+	},
+	beforeDestroy: function () {
+		console.log("before destroy");
+	},
+	destroyed: function () {
+		console.log("destroyed");
+	},
+	methods: {
+		destroy: function (){
+			this.$destroy();
+		}
+	}
+});
+
+
+```
