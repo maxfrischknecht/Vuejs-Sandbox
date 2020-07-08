@@ -30,27 +30,26 @@
 		<div class="row">
 			<div class="col-12">
 				
-				<div id="app">
-					<h1>Methods, Computed and Watchers</h1>
-
-					<button v-on:click="counter++">Increase</button>
-					<button v-on:click="counter--">Decrease</button>
-					<button v-on:click="secondCounter++">Second Increase</button>
-
-					<p>{{ counter }} | {{ secondCounter }}</p>
-					<p>Result from Methods: {{ result() }}</p>
-					<p>Output from Computed: {{ output }}</p>
-
-					<hr>
-					<p>Watch "watches" counter, whenever counter changes, it executes a function that resets counter to 0 after 2 seconds.</p>
-				</div>
+				<div id="exercise">
+                    <!-- 1) Show a "result" of 'not there yet' as long as "value" is not equal to 37 - you can change "value" with the buttons. Print 'done' once you did it -->
+                    <div>
+                        <p>Current Value: {{ value }}</p>
+                        <button @click="value += 5">Add 5</button>
+                        <button @click="value += 1">Add 1</button>
+                        <p>{{ result }}</p>
+                    </div>
+                    <!-- 2) Watch for changes in the "result" and reset the "value" after 5 seconds (hint: setTimeout(..., 5000) -->
+                    <div>
+                        <p>{{ value }}</p>
+                    </div>
+                </div>
 
 
 			</div>
 		</div>
 	</div>
 
-	<script src="assets/js/app.js"></script>
+	<script src="app.js"></script>
 
 </body>
 </html>

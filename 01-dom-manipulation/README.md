@@ -3,13 +3,16 @@
 ## Mustache Syntax
 Use `{{ someData }}` when Vue should render a string. You can directly access the data inside the Vue instance `data` object or `methods` object.
 
-## Directives
+## Directives & Binding
 Use `v-bind:argument` if you want to pass an argument to a html tag, for example a link like so (curly brackets would get rendered as string):
 
 ```
 <a v-bind:href="someLink">The Link</a>
 ```
 See more directives [here](https://vuejs.org/v2/api/#Directives)
+
+##### Shorthand
+Use `:href` instead of `v-bind:href`.
 
 ## Render HTML
 By default Vue doesn't render html tags, this means `<p> Hello </p>` inside the data will be rendered as string to avoid cross site scripting attacks. If you know the source is save you can use `v-html` like so:
@@ -19,7 +22,7 @@ By default Vue doesn't render html tags, this means `<p> Hello </p>` inside the 
 ```
 
 ## Events
-Use the `v-on:argument="functionToCall"` directive to listen to events like `click`, `leave` or `enter`.
+Use the `v-on:argument="functionToCall"` directive to listen to events like `click`, `leave` or `enter`. 
 
 Vue also creates AND PASSES an event object. You can use it to access diverse information, for example x and y coordinates.
 
@@ -30,6 +33,9 @@ If you have a nested element that should not be influenced by the function you c
 
 ##### Keys & Key Modifiers
 Listen to key input events and use the modifiers to only listen to specific keys like so `v-on:keyup.enter="functionToCall"`. Checkt the Vue reference on it [here](https://vuejs.org/v2/guide/events.html#Key-Modifiers)
+
+##### Shorthand
+Use `@click` instead of `v-on:click`.
 
 ## Javascript in HTML
 Wherever you write Vue code in the HTML, you can also write simple Javascript. For example by increasing directly the value and avoiding a function: 
