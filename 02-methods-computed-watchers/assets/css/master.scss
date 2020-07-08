@@ -1,0 +1,12 @@
+//no scss or css here – only with partials
+@import "_env_variables.scss";
+
+@import "_colors";
+@import "_spaces";
+@import "_fonts";
+@import "_general";
+
+@import "_components/_navigation-header";
+@import "_components/_footer";
+
+// @import "_pages/_xyz";
