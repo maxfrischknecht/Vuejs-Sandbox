@@ -31,49 +31,10 @@
 			<div class="col-12">
 				
 				<div id="app">
-					<h1>Conditionals</h1>
-
-					<p v-if="show">You see me</p>
-					<p v-else>Now you see me</p>
-					<button @click="show = !show">Switch</button>
-
-					<hr>
-					<h1>Grouped With The Template Tag</h1>
-
-					<template v-if="showTemplate">
-						<p>One Paragraph</p>
-						<p>Another Paragraph which is not nested!</p>
-					</template>
-					<button @click="showTemplate = !showTemplate">Switch</button>
-
-					<hr>
-					<h1>Output An Array</h1>
-
-					<ul>
-						<li v-for="item in ingredients"> {{ item }}</li>
-					</ul>
-
-					<hr>
-					<h1>Output An Array with Index inside a Template</h1>
-					<template v-for="(item, index) in ingredients">
-						<p>{{item}}</p>
-						<p>{{index}}</p>
-					</template>
-
-					<hr>
-					<h1>Output A Array of Objects</h1>
-						<ul>
-							<li v-for="person in persons"> {{person.name}}, {{person.age}}</li>
-							<li v-for="person in persons">
-								<span v-for="(value, key, index) in person">{{key}}: {{value}}, ({{index}}) </span>
-							</li>
-
-						</ul>
-
-					<hr>
-					<h1>Output A List of Numbers</h1>
-					<span v-for="n in 20"> {{n}}</span>
-
+					
+					<h1 ref="heading">{{ title }}</h1>
+					<button v-on:click="show">Show Paragraph</button>
+					<p v-if="showParagraph">This is not always visible</p>
 
 				</div>
 

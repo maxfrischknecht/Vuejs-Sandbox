@@ -1,0 +1,104 @@
+/* Font Face
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+// @font-face {
+//   font-family: 'MonumentGrotesk-Regular';
+//     src: url($font-path + '/assets/fonts/MonumentGrotesk-Regular.eot'),
+//          url($font-path + '/assets/fonts/MonumentGrotesk-Regular.eot') format('embedded-opentype'),
+//          url($font-path + '/assets/fonts/MonumentGrotesk-Regular.woff2') format('woff2'),
+//          url($font-path + '/assets/fonts/MonumentGrotesk-Regular.woff') format('woff'),
+//          url($font-path + '/assets/fonts/MonumentGrotesk-Regular.ttf') format('truetype'),
+//          url($font-path + '/assets/fonts/MonumentGrotesk-Regular.svg#MonumentGrotesk-Regular') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+//   }
+
+  @import url('https://fonts.googleapis.com/css?family=Vollkorn&display=swap');
+
+/* Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+$serif: 'Vollkorn';
+
+$serif-m: (
+  font: ($serif, serif),
+  weight: (400),
+  transform: (none),
+  size: (2.4rem),
+  spacing: (0px),
+  line-height: (1.15)
+);
+
+$serif-l: (
+  font: ($serif, serif),
+  weight: (400),
+  transform: (none),
+  size: (2.4rem),
+  spacing: (0px),
+  line-height: (1.15)
+);
+
+/* Mobile Sizing
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+// base classe for everything
+body, h1, h2, h3, h4, h5, h6, p, li {
+	font-family: map-get($serif-m, font);
+  font-weight: map-get($serif-m, weight);
+  text-transform: map-get($serif-m, transform);
+  font-size: map-get($serif-m, size);
+  letter-spacing: map-get($serif-m, spacing);
+	line-height: map-get($serif-m, line-height);
+  color: $color-black;
+  padding: 0px; 
+  margin: 0px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-break: break-word;
+}
+
+h1 {
+  font-family: map-get($serif-l, font);
+  font-weight: map-get($serif-l, weight);
+  text-transform: map-get($serif-l, transform);
+  font-size: map-get($serif-l, size);
+  letter-spacing: map-get($serif-l, spacing);
+  line-height: map-get($serif-l, line-height);
+  padding-bottom: 0.8rem;
+  color: red;
+  // text-align: center;
+}
+
+// create a class for each font different from the base class
+// e.g. dia-small, dia-medium, dia-large, times-small, times-medium, times-large
+// or sans-small, ..., serif-small, ...
+
+/* Desktop Sizing
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media (min-width: 768px) {
+  // copy + past the classes from above here, modify the fonts
+}
+
+/* General Font Settings
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+// create spacing between richtext p's
+.richtext-linebreaks p {
+  margin-bottom: 30px;
+  &:last-of-type {
+    margin-bottom: 0px;
+  }
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: $color-text-selection;
+  background-color: $color-text-selection-background;
+  // background-color: rgba(255, 0, 0, 0.99);
+}
+::selection {
+  color: $color-text-selection;
+  background-color: $color-text-selection-background;
+  // background-color: rgba(255, 0, 0, 0.99);
+}
+::-webkit-selection {
+  color: $color-text-selection;
+  background-color: $color-text-selection-background;
+  // background-color: rgba(255, 0, 0, 0.99);
+}

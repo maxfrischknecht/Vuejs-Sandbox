@@ -33,3 +33,29 @@ HTML:
 	<li v-for="item in ingredients"> {{ item }} </li>
 </ul>
 ```
+
+You can also output a list of numbers like this:
+
+```
+<span v-for="n in 20"> {{n}}</span>
+```
+
+##### Keys ❗️
+Vue only keeps track of the index position of elements in an array. So when you change them, for example by pushing a new element or reordering the array, it might happen that Vue overwrites elements witch each other. Because it only knows the index position of the element it doens't now the elements uniqueness. You can solve this problem by providing a unique key! for example like this:
+
+```
+<li v-for="item in ingredients" :key="ingredient"> {{ item }}</li>
+```
+
+
+## Module Resources & Useful Links
+
+JSFiddle:
+
+* Conditionals (v-if and v-show): https://jsfiddle.net/smax/hoc719j5/
+* Lists: https://jsfiddle.net/smax/o7uy2g0u/
+
+Useful Links:
+
+* Official Docs - Conditionals: http://vuejs.org/guide/conditional.html
+* Official Docs - Lists: http://vuejs.org/guide/list.html
