@@ -12,7 +12,6 @@ Use `v-bind:argument` if you want to pass an argument to a html tag, for example
 
 ```
 <a v-bind:href="someLink">The Link</a>
-
 ```
 See more directives [here](https://vuejs.org/v2/api/#Directives)
 
@@ -35,3 +34,19 @@ If you have a nested element that should not be influenced by the function you c
 
 ##### Keys & Key Modifiers
 Listen to key input events and use the modifiers to only listen to specific keys like so `v-on:keyup.enter="functionToCall"`. Checkt the Vue reference on it [here](https://vuejs.org/v2/guide/events.html#Key-Modifiers)
+
+### Javascript in HTML
+Wherever you write Vue code in the HTML, you can also write simple Javascript. For example by increasing directly the value and avoiding a function: 
+
+```
+<button v-on:click="counter++">Counter Button</button>
+``` 
+
+or by using short turnary statements like so: 
+
+```
+<p>{{counter > 10 ? "Greater than 10" : "Smaller than 10"}}</p>
+```
+
+### Two Way Data Binding
+Use `v-model` to not only change the data trough events and read data trough rendering, but doing bot at the same time.

@@ -5,10 +5,11 @@ new Vue({
 		someData: "Hello Data Provided by a Function!",
 		someLink: "www.google.com",
 		historyData: "Once Upon A Time...",
-		htmlData: "<a href='https://google.com'>Html A Tag from Data</a>",
+		htmlData: "<a href='https://google.com'>Complete Html A Tag from Data</a>",
 		counter: 0,
 		x: 0,
-		y: 0
+		y: 0,
+		dynamicName: "Max"
 	},
 	methods: {
 		sayHelloFunction: function (){

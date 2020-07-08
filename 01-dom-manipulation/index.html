@@ -31,6 +31,7 @@
 			<div class="col-12">
 				
 				<div id="app">
+					<h1>DOM: Rendering and Binding</h1>
 					<p>{{ title }}</p>
 					<p>{{ sayHelloFunction() }}</p>
 					<p>{{ getDataFunction() }}</p>
@@ -44,8 +45,12 @@
 					<p v-html="htmlData"></p>
 
 					<hr>
+					<h1>Events & Event Modifiers</h1>
+
 					<button v-on:click="increaseFunction">Counter Button</button>
+					<button v-on:click="counter++">Counter Button</button>
 					<p>{{counter}}</p>
+					<p>{{counter > 10 ? "Greater than 10" : "Smaller than 10"}}</p>
 
 					<hr>
 					<p v-on:mousemove="getCoordinates">My mouse coordinates on hover: {{x}} / {{y}}
@@ -55,6 +60,14 @@
 					<hr>
 					<p>Create an alert when hitting enter:</p>
 					<input type="text" v-on:keyup.enter="alertMe">
+
+					<hr>
+					<h1>Two Way Data Binding</h1>
+					
+					<input type="text" v-model="dynamicName">
+					<p>{{dynamicName}}</p>
+
+
 				</div>
 
 
