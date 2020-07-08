@@ -30,25 +30,9 @@
 		<div class="row">
 			<div class="col-12">
 				
-				<div id="app1">
-					<h1 ref="heading">{{ title }}</h1>
-					<button v-on:click="show" ref="myButton">Show Paragraph</button>
-					<p v-if="showParagraph">This is not always visible</p>
+				<div id="app">
+					<p>{{ title }}</p>
 				</div>
-
-				<hr>
-
-				<div id="app2">
-					<h1>{{title}}</h1>
-					<button @click="changeTheOtherInstance"> Change the other instance </button>
-					<p>A reusable component inside App2:</p>
-					<fancycomponent></fancycomponent>
-					<fancycomponent></fancycomponent>
-					<fancycomponent></fancycomponent>
-				</div>
-
-				<hr>
-				<div id="app3"></div>
 
 
 			</div>
