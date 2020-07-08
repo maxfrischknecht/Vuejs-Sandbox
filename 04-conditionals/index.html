@@ -31,29 +31,8 @@
 			<div class="col-12">
 				
 				<div id="app">
-					
-					<h1>Toggle Classes</h1>
-					<div class="demo" @click="attacheRed = !attacheRed" :class="{'red' : attacheRed}"></div>
-					
-					<hr>
-
-					<h1>Computed Classes</h1>
-					<div class="demo" @click="attacheBlue = !attacheBlue" :class="computedClass"></div>
-
-					<hr>
-					<h1>Typed Class Names</h1>
-
-					<div class="demo" :class="typedColor"></div>
-					<br>
-					<input type="text" v-model="typedColor">
-
-					<hr>
-					<h1>Dynamic Inline Styling</h1>
-					<div class="demo" :style="inlineStyle"></div>
-					<div class="demo" :style="[inlineStyle, {height: width + 'px'}]"></div>
-					<br>
-					<input type="text" v-model="width">
-					<input type="text" v-model="inlineColor">
+					<p>{{ title }}</p>
+				</div>
 
 
 			</div>
