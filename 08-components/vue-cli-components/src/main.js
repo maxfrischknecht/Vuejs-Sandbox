@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 
 // register the component globally
+// means you can use <app-server-status> in App.vue
 import Home from './components/Home.vue'
 Vue.component("app-server-status", Home);
 

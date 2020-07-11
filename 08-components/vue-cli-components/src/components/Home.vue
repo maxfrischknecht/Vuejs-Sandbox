@@ -1,8 +1,8 @@
 <template>
   <div>
-    <p>Server Status: {{status}}</p>
+    <p>Server Status: {{serverStatus}}</p>
     <hr>
-    <button @click="changeStatus">Change Status</button>
+    <button @click="status = !status">Change Status</button>
   </div>
 </template>
 
@@ -10,13 +10,18 @@
 export default {
   data: function(){
     return {
-      status: "Critical"
+      status: false
     }
   },
   methods: {
     // use ES6 style
     changeStatus(){
-      this.status = "Normal";
+      this.status  = !this.status;
+    }
+  },
+  computed: {
+    serverStatus(){
+      return this.status ? "Critical" : "Normal";
     }
   }
 }
