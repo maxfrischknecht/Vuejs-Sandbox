@@ -67,9 +67,9 @@ props: {
 
 ```
 
-## From Child Component => Parent Component
+## From Child Component => Parent Component (with custom event)
 
-You need to create a method that emits `$emit()` an event. This way the parent can "listen" to this events with `v-on:nameOfEvent`:
+You can create a custom method that emits `$emit()` an event. This way the parent can "listen" to this events with `v-on:nameOfEvent`:
 
 Child Template:
 
@@ -92,4 +92,39 @@ Parent Template:
 
 ```
 <app-user-detail v-bind:myName="name" @nameWasReset="name = $event"></app-user-detail>
+```
+
+## From Child Component => Parent Component (with callback)
+
+A bit a nicer way to change parent data by the child is to use a prop to pass a function to the child that changes the data, instead of the data itself.
+
+Parent Method: 
+
+```        
+methods: {
+    resetName(){
+        this.name = "Max"
+    }
+},
+
+```
+Parent Template:
+
+```
+ <app-user-detail 
+    v-bind:resetFn="resetName()"
+</app-user-detail>
+```
+
+Child Component:
+
+```
+props: {
+	resetFn: Function
+}
+```
+Child Template: 
+
+```
+	
 ```
