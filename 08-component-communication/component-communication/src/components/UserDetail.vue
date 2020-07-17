@@ -4,6 +4,7 @@
     <p>User Name: {{myName}}</p>
     <p>Switched Name from Method: {{ switchName() }}</p>
     <p>Name is {{myName}}</p>
+    <p>{{userAge}}</p>
     <button @click="resetName()">Reset Name by custom event</button>
     <button @click="resetFn()">Reset Name by callback</button>
   </div>
@@ -18,7 +19,8 @@
         required: true,
         default: "Max"
       },
-      resetFn: Function
+      resetFn: Function,
+      userAge: Number
     },
     methods: {
       switchName(){
