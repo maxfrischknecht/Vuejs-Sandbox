@@ -1,6 +1,6 @@
 # Component Communication
 
-## From Parent Component => Child Component
+## Parent => Child
 
 #### Child Component
 
@@ -67,17 +67,17 @@ props: {
 
 ```
 
-## From Child Component => Parent Component (with custom event)
+## Child => Parent (with custom event)
 
 You can create a custom method that emits `$emit()` an event. This way the parent can "listen" to this events with `v-on:nameOfEvent`:
 
-Child Template:
+#### Child Template
 
 ```
 <button @click="resetname()">Reset Name</button>
 ```
 
-Child Method:
+#### Child Method
 
 ```
 methods: {
@@ -88,17 +88,17 @@ methods: {
 }
 ```
 
-Parent Template:
+#### Parent Template
 
 ```
 <app-user-detail v-bind:myName="name" @nameWasReset="name = $event"></app-user-detail>
 ```
 
-## From Child Component => Parent Component (with callback)
+## Child => Parent (with callback)
 
-A bit a nicer way to change parent data by the child is to use a prop to pass a function to the child that changes the data, instead of the data itself.
+A nicer way to change parent data trough the child is to use a prop to pass a function to the child. The child then executes the parent function.
 
-Parent Method: 
+#### Parent Method (define the function)
 
 ```        
 methods: {
@@ -108,23 +108,23 @@ methods: {
 },
 
 ```
-Parent Template:
+#### Parent Template (pass the function to the child)
 
 ```
  <app-user-detail 
-    v-bind:resetFn="resetName()"
+    v-bind:resetFn="resetName"
 </app-user-detail>
 ```
 
-Child Component:
+#### Child Component (reference the function as prop)
 
 ```
 props: {
 	resetFn: Function
 }
 ```
-Child Template: 
+#### Child Template (call the function)
 
 ```
-	
+<button @click="resetFn()">Reset Name by callback</button>
 ```
