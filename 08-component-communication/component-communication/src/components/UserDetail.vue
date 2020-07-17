@@ -24,6 +24,7 @@
       },
       resetName(){
         this.myName = "Max";
+        // send the new name back to the parent!
         this.$emit("nameWasReset", this.myName);
 
       }

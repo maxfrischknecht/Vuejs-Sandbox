@@ -6,6 +6,7 @@
         <button @click="changeName()">Change Name</button>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
+                <!-- @nameWasReset is a function of the child returning a new name -->
                 <app-user-detail v-bind:myName="name" @nameWasReset="name = $event"></app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">

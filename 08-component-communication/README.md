@@ -30,7 +30,7 @@ Hint: You can also access the variable in the methods. Keep in mind that it is a
 
 #### Parent Component
 
-You can pass the date by adding it to the template like so:
+You can pass the data by adding it to the template like so:
 
 ```
  <app-user-detail v-bind:myName="namefromdata"></app-user-detail>
