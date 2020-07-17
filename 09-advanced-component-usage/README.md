@@ -9,7 +9,7 @@ Pass html & dynamic (!) content from the parent to the child:
 ```
 <template>
    <app-quote>
-       <h1>{{quoteTitle}}</h1>
+       <h1 slot="title">{{quoteTitle}}</h1>
        <p>Bla Bla</p>
    </app-quote>
 </template>
@@ -18,7 +18,45 @@ Pass html & dynamic (!) content from the parent to the child:
 #### Child Template:
 
 ```
+<slot name="title"></slot>
 <slot></slot>
-// outputs the h1 & p
+// outputs the h1 (title) & p (default)
 ```
-**Attention** The scoped styling applies in the child component, not the parent!
+You can style slots from the parent or the child.
+
+## Dynamic Components
+
+Dynamically decide which component to load in the parent with a boolean value in the data matching the component name:
+
+#### Parent Template:
+
+```
+<button @click="selectedComponent = 'appQuote'">Quote</button>
+<button @click="selectedComponent = 'appAuthor'">Author</button>
+<button @click="selectedComponent = 'appNew'">New</button>
+
+<component :is="selectedComponent">
+   <p>Default Content</p>
+</component>
+```
+
+#### Parent Instance
+```
+import Quote from "./components/Quote";
+import New from "./components/New";
+import Author from "./components/Author";
+
+export default {
+  data: function() {
+    return {
+      selectedComponent: 'appQuote'
+    };
+  },
+  components: {
+    appQuote: Quote,
+    appAuthor: Author,
+    appNew: New
+  }
+};
+
+```
