@@ -134,3 +134,10 @@ props: {
 If you want to communicate between siblings, you always need to do it over the parent component. You can use the same ways like above to communicate from child to parent and from parent to child (e.g. with `$emit` or a callback function passed as `props`.
 
 However, this can become complicated quickly, so better use vuex.
+Or you use a `bus`, look into execise 8 for that.
+
+## Useful Links:
+
+* Official Docs - Props: http://vuejs.org/guide/components.html#Props
+* Official Docs - Custom Events: http://vuejs.org/guide/components.html#Custom-Events
+* Official Docs - Non-Parent-Child Communication: http://vuejs.org/guide/components.html#Non-Parent-Child-Communication
