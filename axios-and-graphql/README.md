@@ -23,7 +23,7 @@ data() {
   },
   mounted() {
     axios({
-      url: "http://showtime2020.orientedhosting.com/api",
+      url: "http://test.com/api",
       method: "POST",
       data: {
         query: `
