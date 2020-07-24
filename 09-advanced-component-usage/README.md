@@ -60,3 +60,34 @@ export default {
 };
 
 ```
+
+## Alive or Destroyed?
+
+By default dynamic components get destroyed when we switch to another component. This means that your data from the component get's also reset to the starting values (e.g. 0 on a counter).
+
+If you want the component to stay alive wrap it:
+
+```
+<keep-alive>
+  <component :is="selectedComponent"></component>
+</keep-alive>
+```
+
+#### Deactived & Activated
+
+There are new live-cycle-hooks with this.
+
+##### Deactivated:
+Called when you leave the currently active component and switch to another one.
+
+##### Activated:
+Called when you come from another component and load this one dinamically.
+
+```
+activated() {
+  console.log("activated")
+},
+deactivated() {
+  console.log("deactivated")
+},
+```
