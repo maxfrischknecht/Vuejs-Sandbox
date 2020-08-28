@@ -110,4 +110,11 @@ dataSwitch: true,
 ```
 
 
+## Submit
+
+Prevent from sending to server!
+
+`<button class="btn btn-primary" @click.prevent="submitted()">Submit!</button>`
+
+
 

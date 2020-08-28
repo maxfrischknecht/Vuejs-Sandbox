@@ -68,12 +68,12 @@
       <hr />
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-          <button class="btn btn-primary">Submit!</button>
+          <button class="btn btn-primary" @click.prevent="submitted()">Submit!</button>
         </div>
       </div>
     </form>
     <hr />
-    <div class="row">
+    <div class="row" v-if="isSumbitted">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -120,8 +120,14 @@ export default {
       selectedPriority: 'high',
       priorities: ["high", "medium", "low"],
       dataSwitch: true,
+      isSumbitted: false,
     };
   },
+  methods:{
+    submitted(){
+      this.isSumbitted = true;
+    }
+  }
 };
 </script>
 
