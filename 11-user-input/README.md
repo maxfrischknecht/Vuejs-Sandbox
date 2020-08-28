@@ -50,3 +50,24 @@ Then output it with `<li v-for="(item, i) in sendMail" :key="i">{{item}}</li>`
 ## Radio Buttons
 
 When the data is a String (`gender: "Male"`), and you bind it multiple times with `v-model="gender"`, Vuejs automatically let's you only select one option! The value is automatically saved as well.
+
+## Options
+
+Template:
+
+```
+<select id="priority" class="form-control" v-model="selectedPriority">
+  <option v-for="priority in priorities" :selected="priority == 'low'" :key="priority">{{priority}}</option>
+</select>
+```
+
+Data: 
+
+```
+selectedPriority: 'high',
+priorities: ["high", "medium", "low"]
+```
+
+Ouput with `Priority: {{selectedPriority}}`
+
+Set the default by an if `:selected="priority == 'low'"` or with the default from the data.
