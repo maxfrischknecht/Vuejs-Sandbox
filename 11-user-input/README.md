@@ -33,6 +33,8 @@ export default {
 
 This is realtime! If you only want it to be update on submit or change of field use `v-model.lazy`. Use `v-model.trim` to get rid of white space and `v-model.number` to convert the string to a number.
 
+`v-model` is the same like `:value="user.email"` combined with `@input="user.email = $event.target.value"`.
+
 ## Placeholder Content
 
 Always use `v-model` for placeholder content!
@@ -71,3 +73,41 @@ priorities: ["high", "medium", "low"]
 Ouput with `Priority: {{selectedPriority}}`
 
 Set the default by an if `:selected="priority == 'low'"` or with the default from the data.
+
+## Custom Input Event from Component!
+
+### The component
+```
+<template>
+  <div>
+    <div id="on" @click="switched(true)" :class="{active: value}">On</div>
+    <div id="off" @click="switched(false)" :class="{active: !value}">Off</div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['value'],
+  methods: {
+    switched(val){
+      this.$emit('input', val);
+    }
+  }
+};
+</script>
+```
+
+### The Parent
+
+Template:
+```
+<appSwitch v-model="dataSwitch"></appSwitch>
+```
+
+Data: 
+```
+dataSwitch: true,
+```
+
+
+

@@ -7,7 +7,10 @@
           <hr />
           <div class="form-group">
             <label for="email">Mail</label>
-            <input type="text" id="email" class="form-control" v-model="user.email" />
+            <input type="text" id="email" class="form-control" 
+            :value="user.email" 
+            @input="user.email = $event.target.value"
+            />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
@@ -49,6 +52,11 @@
           </label>
         </div>
       </div>
+       <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group">
+          <appSwitch v-model="dataSwitch"></appSwitch>
+        </div>
+      </div>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group">
           <label for="priority">Priority</label>
@@ -84,7 +92,7 @@
             </ul>
             <p>Gender: {{gender}}</p>
             <p>Priority: {{selectedPriority}}</p>
-            <p>Switched:</p>
+            <p>Switched: {{dataSwitch}}</p>
           </div>
         </div>
       </div>
@@ -93,7 +101,12 @@
 </template>
 
 <script>
+import Switch from './Switch.vue'
+
 export default {
+  components: {
+    appSwitch: Switch,
+  },
   data() {
     return {
       user: {
@@ -105,7 +118,8 @@ export default {
       sendMail: [],
       gender: "Male",
       selectedPriority: 'high',
-      priorities: ["high", "medium", "low"]
+      priorities: ["high", "medium", "low"],
+      dataSwitch: true,
     };
   },
 };
