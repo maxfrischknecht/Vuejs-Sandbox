@@ -1,12 +1,12 @@
 # Vuex 
 
-Vuex ads a centralized store. This way it's easier to communicate data between different childs in bigger applications. Typically the store is located in `components/store/store.js`
+Vuex ads a centralized store. This way it's easier to communicate data between different childs in bigger applications. Typically the store is located in `./store/store.js`
 
 Install Vuex with `npm install --save vuex`
 
 ## Creating a store
 
-store.js
+./store/store.js
 
 ```js
 import Vue from 'vue';
@@ -73,5 +73,13 @@ export default {
   },
 };
 </script>
-
 ```
+
+## Improvement trough Getters
+
+This is already nice, because we can avoid the anoying Child => Parent => Child communication. However, it's not the best way yet. If we write the functions that change the value (e.g. `increment()`) on the component side, and if we need it in different places, we also need to write the same function multiple times. We can avoid this with the usage of *Getters*.
+
+### Defining Getters
+
+
+Checkout the second example code `vuex-getters-example` for seeing this in action.
