@@ -171,6 +171,122 @@ computed: {
 }
 ```
 
-## Mutations instead of Getters
+## Using Mutations (Synchronous Tasks)
+
+With Mutations you actually change the data immediately. Mutations *always have to be synchronous!*. Due to the simple reason, that the order of mutations and changes is no longer linear, therefore, messing up the whole point of the store.
+
+.store/store.js
+
+```js
+mutations: {
+  increment: state => {
+    state.counter++
+  },
+  decrement: state => {
+    state.counter--
+  }
+}
+```
+
+You can use those Mutations inside you methods as following:
+
+```js
+methods: {
+  increment() {
+    this.$store.commit('increment'); // must stringify the mutation name
+  },
+  decrement() {
+    this.$store.commit('decrement');
+  },
+  },
+```
+
+Or as mapped version:
+
+```js
+import { mapMutations } from 'vuex';
+export default {
+  methods: {
+    ...mapMutations([
+      'increment',
+      'decrement'
+    ]),
+  },
+};
+```
+
+## Using Actions + Mutations (Asynchronous Tasks)
+
+The asynchronous part of the task is done by the Action, and only after finishing the task, the Action *commits* the change to the Mutation.
+
+./store/store.js
+
+```js
+actions: {
+  // context gives access to store functions like 'commit'
+  increment: content => {
+    context.commit('increment') // name of the mutation
+  }
+}
+```
+In the method:
+
+```js
+import { mapActions } from 'vuex';
+export default {
+  methods: {
+    ...mapActions([
+      'increment',
+      'decrement'
+    ]),
+  },
+};
+```
+
+### Passing Arguments with Actions
+
+```js
+methods: {
+  increment(amount){
+    this.$store.dispatch('increment', amount)
+  }
+}
+```
+
+./store/store.js
+
+```js
+// the action
+actions: {
+  // context gives access to store functions like 'commit'
+  increment: (content, payload) => {
+    context.commit('increment', payload) // name of the mutation
+  }
+}
+// the mutation
+mutations: {
+  increment: (state, payload) => {
+    state.counter += payload
+  }
+},
+```
+
+### Passing Multiple Arguments with Actions
+
+Use Objects to pass multiple arguments to an action.
+
+```html
+<button class="btn btn-primary" @click="increment({amount: 100, duration: 200})">Increment</button>
+```
+
+```js
+// the action
+actions: {
+  // context gives access to store functions like 'commit'
+  increment: (content, payload) => {
+    context.commit('increment', payload.amount) // name of the mutation
+  }
+}
+```
 
 Checkout the second example code `vuex-getters-example` for seeing this in action.

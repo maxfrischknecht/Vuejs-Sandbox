@@ -19,5 +19,20 @@ export const store = new Vuex.Store({
     clickCounter: state => {
       return state.counter + " Clicks"
     }
+  },
+  // mutations actually change the date
+  mutations: {
+    increment: state => {
+      state.counter++
+    },
+    decrement: state => {
+      state.counter--
+    }
+  },
+  actions: {
+    // context gives access to store functions like 'commit'
+    increment: content => {
+      context.commit('increment') // name of the mutation
+    }
   }
 });
