@@ -132,6 +132,8 @@ export default {
     'clickCounter'
   ])
 };
+
+// use {{ doubleCounter }} and {{ clickCounter }} in your templates
 ```
 
 You can also give them names like:
@@ -141,7 +143,7 @@ computed: mapGetters([
   propertyName: 'doubleCounter'
 ])
 
-// {{ propertyName }} in the template
+// use {{ propertyName }} in the template
 ```
 
 However, this way you can't use your own computed properties next to the mapGetters. To do so, you need a different syntax. This syntax is ES6, and you need a valid compiler to avoid errors. In this example I added an additional compiler is used with `npm install --save-dev babel-preset-stage-2`. After installation you also need to add it to the babel file.
@@ -151,7 +153,10 @@ computed: {
   ...mapGetters([
     'doubleCounter',
     'clickCounter'
-  ])
+  ]),
+  someProperty () {
+    return 'halleluja'
+  }
 }
 ```
 
