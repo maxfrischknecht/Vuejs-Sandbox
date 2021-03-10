@@ -77,9 +77,94 @@ export default {
 
 ## Improvement trough Getters
 
-This is already nice, because we can avoid the anoying Child => Parent => Child communication. However, it's not the best way yet. If we write the functions that change the value (e.g. `increment()`) on the component side, and if we need it in different places, we also need to write the same function multiple times. We can avoid this with the usage of *Getters*.
+This is already nice, because we can avoid the anoying Child => Parent => Child communication. However, it's not the best way yet if you start building functions that manipulate the state. If we write the functions that change the value (e.g. `increment()`) on the component side, and if we need it in different places, we also need to write the same function multiple times (and debug multiple times). We can avoid this with the usage of *Getters*.
 
 ### Defining Getters
+
+As part of the file `store/store.js`, inside the `new Vuex.Store({})` object, where you also define your `state`, you can define your getters.
+
+```js
+// define your counting function here
+getters: {
+  // this function works on the state and returns a new value of it
+  doubleCounter: state => {
+    return state.counter * 2;
+  }
+}
+```
+### Getting the Getters
+
+Use them as follows in your components/methods:
+
+```js
+counter() {
+  return this.$store.getters.doubleCounter;
+},
+```
+
+### Mapping Getters (using multiple ones in an easy way)
+
+If you have multiple getters, instead of created computed properties for all of them manually, you can use the `mapGetters` helper function.
+
+So instead of this:
+
+```js
+export default {
+  computed: {
+    counter() {
+      return this.$store.getters.doubleCounter;
+    },
+    clickCounter() {
+      return this.$store.getters.clickCounter;
+    },
+  },
+};
+```
+
+You can write this and vue creates the computed properties automatically!
+
+```js
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: mapGetters([
+    'doubleCounter', // name of the getters function
+    'clickCounter'
+  ])
+};
+```
+
+You can also give them names like:
+
+```js
+computed: mapGetters([
+  propertyName: 'doubleCounter'
+])
+```
+
+However, this way you can't use your own computed properties next to the mapGetters. To do so, you need a different syntax. This syntax is ES6, and you need a valid compiler to you don't get an error when using it. In this example I added an additional compiler with `npm install --save-dev babel-preset-stage-2` and add it to your babel confiq file.
+
+```js
+computed: {
+  ...mapGetters([
+    'doubleCounter',
+    'clickCounter'
+  ])
+}
+```
+
+babel confic file `.babelrc`
+
+```js
+{
+  "presets": [
+    ["es2015", { "modules": false }],
+    ["stage-2"]
+  ]
+}
+```
+
+
 
 
 Checkout the second example code `vuex-getters-example` for seeing this in action.
