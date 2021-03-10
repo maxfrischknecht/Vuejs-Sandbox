@@ -2,7 +2,15 @@
 
 Vuex ads a centralized store. This way it's easier to communicate data between different childs in bigger applications. Typically the store is located in `./store/store.js`
 
-Install Vuex with `npm install --save vuex`
+## Installation
+
+```
+npm install --save vuex
+```
+
+## Vuex Pattern
+
+![](vuex.png)
 
 ## Creating a store
 
@@ -216,6 +224,8 @@ export default {
 ```
 
 ## Using Actions + Mutations (Asynchronous Tasks)
+
+**It is best practive to always use actions before making mutations**
 
 The asynchronous part of the task is done by the Action, and only after finishing the task, the Action *commits* the change to the Mutation.
 
