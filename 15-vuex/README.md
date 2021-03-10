@@ -171,4 +171,6 @@ computed: {
 }
 ```
 
+## Mutations instead of Getters
+
 Checkout the second example code `vuex-getters-example` for seeing this in action.
