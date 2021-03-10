@@ -26,7 +26,7 @@ export const store = new Vuex.Store({
 
 ## Registering the store
 
-main.js
+./main.js
 
 ```js
 import Vue from 'vue'
@@ -43,9 +43,9 @@ new Vue({
 })
 ```
 
-## Changing the state of `counter` in store
+## Changing the state of `counter` with a method
 
-components/Counter.vue
+./components/Counter.vue
 
 ```js
 methods: {
@@ -55,9 +55,11 @@ methods: {
 }
 ```
 
-## Outputing the counter value reactively
+## Outputing the counter with a computed property
 
-Use a computed property to do so e.g. in components/Result.js
+Use a computed property to output the state of `counter` reactively.
+
+./components/Result.js
 
 ```js
 <template>
@@ -74,14 +76,12 @@ export default {
 };
 </script>
 ```
-
-## Improvement trough Getters
+ 
+## Using Getters instead of methods
 
 This is already nice, because we can avoid the anoying Child => Parent => Child communication. However, it's not the best way yet if you start building functions that manipulate the state. If we write the functions that change the value (e.g. `increment()`) on the component side, and if we need it in different places, we also need to write the same function multiple times (and debug multiple times). We can avoid this with the usage of *Getters*.
 
-### Defining Getters
-
-As part of the file `store/store.js`, inside the `new Vuex.Store({})` object, where you also define your `state`, you can define your getters.
+As part of the file `store/store.js`, inside the `new Vuex.Store({})` object, where you also define your `state`, you can define your Getters.
 
 ```js
 // define your counting function here
@@ -92,33 +92,33 @@ getters: {
   }
 }
 ```
-### Getting the Getters
-
-Use them as follows in your components/methods:
+### Using Getters
 
 ```js
-counter() {
-  return this.$store.getters.doubleCounter;
-},
+computed: {
+  counter() {
+    return this.$store.getters.doubleCounter;
+  }
+}
+
+// use {{ counter }} in the template
 ```
 
-### Mapping Getters (using multiple ones in an easy way)
+### Using Multiple Getters
 
-If you have multiple getters, instead of created computed properties for all of them manually, you can use the `mapGetters` helper function.
+If you have multiple Getters, instead of creating computed properties for all of them manually, you can use the `mapGetters` helper function.
 
 So instead of this:
 
 ```js
-export default {
-  computed: {
-    counter() {
-      return this.$store.getters.doubleCounter;
-    },
-    clickCounter() {
-      return this.$store.getters.clickCounter;
-    },
+computed: {
+  counter() {
+    return this.$store.getters.doubleCounter;
   },
-};
+  clickCounter() {
+    return this.$store.getters.clickCounter;
+  },
+},
 ```
 
 You can write this and vue creates the computed properties automatically!
@@ -140,9 +140,11 @@ You can also give them names like:
 computed: mapGetters([
   propertyName: 'doubleCounter'
 ])
+
+// {{ propertyName }} in the template
 ```
 
-However, this way you can't use your own computed properties next to the mapGetters. To do so, you need a different syntax. This syntax is ES6, and you need a valid compiler to you don't get an error when using it. In this example I added an additional compiler with `npm install --save-dev babel-preset-stage-2` and add it to your babel confiq file.
+However, this way you can't use your own computed properties next to the mapGetters. To do so, you need a different syntax. This syntax is ES6, and you need a valid compiler to avoid errors. In this example I added an additional compiler is used with `npm install --save-dev babel-preset-stage-2`. After installation you also need to add it to the babel file.
 
 ```js
 computed: {
@@ -153,7 +155,7 @@ computed: {
 }
 ```
 
-babel confic file `.babelrc`
+./.babelrc
 
 ```js
 {
@@ -163,8 +165,5 @@ babel confic file `.babelrc`
   ]
 }
 ```
-
-
-
 
 Checkout the second example code `vuex-getters-example` for seeing this in action.
