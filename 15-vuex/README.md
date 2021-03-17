@@ -300,3 +300,85 @@ actions: {
 ```
 
 Checkout the second example code `vuex-getters-example` for seeing this in action.
+
+## Calling an API from Vuex
+
+./src/store/index.js
+
+```js
+// import dependency to handle HTTP request to our back end
+import axios from 'axios'
+import Vuex from 'vuex'
+import Vue from 'vue'
+
+//load Vuex
+Vue.use(Vuex);
+
+//to handle state
+const state = {
+  posts: []
+}
+
+//to handle state
+const getters = {}
+
+//to handle actions
+const actions = {
+  getPosts({ commit }) {
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+        console.log(response.data)
+        commit('SET_POSTS', response.data)
+      })
+  }
+}
+
+//to handle mutations
+const mutations = {
+  SET_POSTS(state, posts) {
+    state.posts = posts
+  }
+}
+
+//export store module
+export default new Vuex.Store({
+  state,
+  getters,
+  actions,
+  mutations
+})
+```
+
+./main.js
+
+```js
+// ...
+import store from './store/index'
+
+// ...
+new Vue({
+  router, 
+  store,
+  render: h => h(App),
+}).$mount('#app')
+```
+
+e.g. ./src/views/Home.vue
+
+```js
+mounted() {
+  // call (dispatch) the action 'getPosts' in store/index.js
+  // this calls the api and saves the response to $store.state.posts
+  this.$store.dispatch("getPosts");
+},
+computed: {
+  posts() {
+    // call the saved api response from $store.state.posts
+    return this.$store.state.posts;
+  },
+},
+```
+
+
+
+
