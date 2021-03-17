@@ -1,4 +1,4 @@
-# Vuex 
+# Vuex
 
 Vuex ads a centralized store. This way it's easier to communicate data between different childs in bigger applications. Typically the store is located in `./store/store.js`
 
@@ -14,7 +14,7 @@ npm install --save vuex
 
 ## Creating a store
 
-./store/store.js
+./src/store/store.js
 
 ```js
 import Vue from 'vue';
@@ -43,7 +43,7 @@ import App from './App.vue'
 // import the strore
 import { store } from './store/store'
 
-// add it to the vue instance 
+// add it to the vue instance
 new Vue({
   el: '#app',
   store,
